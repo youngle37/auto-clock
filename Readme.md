@@ -14,6 +14,7 @@
 
  2. 
     Set these parameters on clock_in.py and clock_out.py
+
     | Parameters             | description                                                   |
     |------------------------|---------------------------------------------------------------|
     | USER                   | Portal's account                                              |
