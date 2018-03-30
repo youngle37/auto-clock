@@ -38,8 +38,8 @@
     ```
         $ crontab -e
 
-        // minute hour day month dayofweek COMMAND
+        # minute hour day month dayofweek COMMAND
         0 8 1-7 * * python3 /home/YOUR_USER/Auto_clock/clock_in.py
         2 18 1-7 * * python3 /home/YOUR_USER/Auto_clock/clock_out.py
-        // 50 hours per month.
+        # 50 hours per month.
     ```
