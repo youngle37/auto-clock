@@ -6,7 +6,7 @@ from datetime import datetime
 #==============================================================================================
 USER = ''                               # Portal's account
 USER_PW = ''                            # Portal's password
-PartTimeId = ''                         # Get from the url of the page of you clock in/out.
+PartTimeId = ''                         # Get from the url of the page you clock in/out.
 
 DayofWeek_Clock_In = [0, 1, 2, 3, 4]    # 0 is Monday and 6 is Sunday
 #==============================================================================================
