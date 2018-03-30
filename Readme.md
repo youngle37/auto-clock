@@ -14,11 +14,13 @@
 
  2. 
     Set these parameters on clock_in.py and clock_out.py
-    - USER                      (Portal's account)
-    - USER_PW                   (Portal's password)
-    - PartTimeId                (Get from the url of the page you clock in/out)
-    - AttendWork                (Job content)
-    - DayofWeek_Clock_In/Out    (Weekday you want to clock in/out, 0 is Monday and 6 is Sunday)
+    | Parameters             | description                                                   |
+    |------------------------|---------------------------------------------------------------|
+    | USER                   | Portal's account                                              |
+    | USER_PW                | Portal's password                                             |
+    | PartTimeId             | Get from the url of the page you clock in/out                 |
+    | AttendWork             | Job content                                                   |
+    | DayofWeek_Clock_In/Out | Weekday you want to clock in/out, 0 is Monday and 6 is Sunday |
 
  3.
     Set the script executable.
