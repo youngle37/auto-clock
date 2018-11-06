@@ -17,8 +17,8 @@
 
     | Parameters             | description                                                   |
     |------------------------|---------------------------------------------------------------|
-    | account                | account on Portal                                             |
-    | password               | password on Portal                                            |
+    | account                | Account on Portal                                             |
+    | password               | Password on Portal                                            |
     | PartTimeId             | Get from the url of the page you clock in/out                 |
     | AttendWork             | Job content                                                   |
     | DayofWeek_Clock        | Weekday you want to clock in/out, 0 is Monday and 6 is Sunday |
