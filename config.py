@@ -16,5 +16,5 @@ CONFIG = {
     'password': '',
     'PartTimeId': '',
     'AttendWork': '睡覺Zz(´-ω-`*)',
-    'DayofWeek_Clock_In': [0, 1, 2, 3, 4]
+    'DayofWeek_Clock': [0, 1, 2, 3, 4]
 }
