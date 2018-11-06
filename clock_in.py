@@ -2,18 +2,11 @@ import requests
 from lxml import html
 from datetime import datetime
 
-# SET THIS
-#==============================================================================================
-USER = ''                               # Portal's account
-USER_PW = ''                            # Portal's password
-PartTimeId = ''                         # Get from the url of the page you clock in/out.
-
-DayofWeek_Clock_In = [0, 1, 2, 3, 4]    # 0 is Monday and 6 is Sunday
-#==============================================================================================
+import config
 
 def main():
     Weekday = datetime.today().weekday()
-    if Weekday not in DayofWeek_Clock_In:
+    if Weekday not in config.CONFIG['DayofWeek_Clock']:
         exit()
 
     headers = {
@@ -27,27 +20,28 @@ def main():
             }
 
     payload = {
-            'j_username': USER,
-            'j_password': USER_PW
+            'j_username': config.CONFIG['account'],
+            'j_password': config.CONFIG['password']
             }
 
     session = requests.session()
 
+    # IDK how to explain this section
     r = session.get('https://portal.ncu.edu.tw/login', headers=headers)
     r = session.post('https://portal.ncu.edu.tw/j_spring_security_check', data=payload)
-    r = session.get('https://cis.ncu.edu.tw/HumanSys/login?netid-user='+USER)
-    r = session.get('https://cis.ncu.edu.tw/HumanSys/student/stdSignIn/create?ParttimeUsuallyId='+PartTimeId)
+    r = session.get('https://cis.ncu.edu.tw/HumanSys/login?netid-user='+config.CONFIG['account'])
+    r = session.get('https://cis.ncu.edu.tw/HumanSys/student/stdSignIn/create?ParttimeUsuallyId='+config.CONFIG['PartTimeId'])
 
     SignIn = {
             'functionName': 'doSign',
             'idNo': '',
-            'ParttimeUsuallyId': PartTimeId,
+            'ParttimeUsuallyId': config.CONFIG['PartTimeId'],
             'AttendWork': ''
             }
 
     # Get token
     tree = html.fromstring(r.text)
-    token = tree.xpath('/html/body/div[4]/div/input/@value')
+    token = tree.xpath('//input[@name="_token"]/@value')
     SignIn.update({'_token': token[0]})
 
     # SignIn

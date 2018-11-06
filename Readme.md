@@ -13,15 +13,15 @@
     ```
 
  2. 
-    Set these parameters on clock_in.py and clock_out.py
+    Set these parameters in config.py
 
     | Parameters             | description                                                   |
     |------------------------|---------------------------------------------------------------|
-    | USER                   | Portal's account                                              |
-    | USER_PW                | Portal's password                                             |
+    | account                | account on Portal                                             |
+    | password               | password on Portal                                            |
     | PartTimeId             | Get from the url of the page you clock in/out                 |
     | AttendWork             | Job content                                                   |
-    | DayofWeek_Clock_In/Out | Weekday you want to clock in/out, 0 is Monday and 6 is Sunday |
+    | DayofWeek_Clock        | Weekday you want to clock in/out, 0 is Monday and 6 is Sunday |
 
  3.
     Set the script executable.
@@ -39,7 +39,7 @@
         $ crontab -e
 
         # minute hour day month dayofweek COMMAND
-        0 8 1-7 * * python3 /home/YOUR_USER/Auto_clock/clock_in.py
-        2 18 1-7 * * python3 /home/YOUR_USER/Auto_clock/clock_out.py
-        # 50 hours per month.
+        0 8 1-7 * * python3 /PATH/TO/Auto_clock/clock_in.py
+        2 18 1-7 * * python3 /PATH/TO/Auto_clock/clock_out.py
+        # For example, 50 hours per month.
     ```
