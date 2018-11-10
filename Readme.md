@@ -22,7 +22,7 @@
     | PartTimeId             | Get from the url of the page you clock in/out                 |
     | AttendWork             | Job content                                                   |
     | DayofWeek_Clock        | Weekday you want to clock in/out, 0 is Monday and 6 is Sunday |
-
+    | Random_delay_range     |The unit is minutes. This is the time the program will be delayed. Make you auto clock-in and clock-out more like human. |
  3.
     Set the script executable.
     ```

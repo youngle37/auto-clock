@@ -1,8 +1,9 @@
 import requests
 from lxml import html
 from datetime import datetime
-
 import config
+import time
+import random
 
 def main():
     Weekday = datetime.today().weekday()
@@ -49,4 +50,7 @@ def main():
 
 
 if __name__ == '__main__':
+    #隨機延遲執行0~5分鐘
+    delay_time=random.randint(0,config.CONFIG['Random_delay_range'])*60
+    time.sleep(delay_time)
     main()
