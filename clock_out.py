@@ -1,9 +1,9 @@
 import requests
 from lxml import html
 from datetime import datetime
-
+import random
 import config
-
+import time
 def main():
     Weekday = datetime.today().weekday()
     if Weekday not in config.CONFIG['DayofWeek_Clock']:
@@ -36,9 +36,8 @@ def main():
             'functionName': 'doSign',
             'idNo': '',
             'ParttimeUsuallyId': config.CONFIG['PartTimeId'],
-            'AttendWork': config.CONFIG['AttendWork']
+            'AttendWork': config.CONFIG['AttendWork'][random.randint(0,len(config.CONFIG['AttendWork'])-1)]
             }
-
     # Get token and idNo
     tree = html.fromstring(r.text)
     token = tree.xpath('//input[@name="_token"]/@value')
@@ -51,4 +50,7 @@ def main():
 
 
 if __name__ == '__main__':
+    #隨機延遲執行0~5分鐘
+    delay_time=random.randint(0,config.CONFIG['Random_delay_range'])*60
+    time.sleep(delay_time)
     main()
