@@ -20,16 +20,29 @@ def main():
             }
 
     payload = {
-            'j_username': config.CONFIG['account'],
-            'j_password': config.CONFIG['password']
+            'language' : 'CHINESE',
+            'username' : config.CONFIG['account'],
+            'password' : config.CONFIG['password']
             }
 
     session = requests.session()
 
     # IDK how to explain this section
     r = session.get('https://portal.ncu.edu.tw/login', headers=headers)
-    r = session.post('https://portal.ncu.edu.tw/j_spring_security_check', data=payload)
-    r = session.get('https://cis.ncu.edu.tw/HumanSys/login?netid-user='+config.CONFIG['account'])
+    
+    # Get CSRF token from portal login page
+    tree = html.fromstring(r.text)
+    payload['_csrf'] = tree.forms[0].fields['_csrf']
+
+    r = session.post('https://portal.ncu.edu.tw/login', data=payload)
+    r = session.get('https://cis.ncu.edu.tw/HumanSys/login')    #This whill redirect to https://portal.ncu.edu.tw/leaving where portal will ask you weather you want to leave portal or not
+    
+    # Get CSRF token from portal redirect form
+    tree = html.fromstring(r.text)
+    token = tree.forms[0].fields['_csrf']
+
+    r = session.post('https://portal.ncu.edu.tw/leaving', data={ "_csrf" : token })
+    
     r = session.get('https://cis.ncu.edu.tw/HumanSys/student/stdSignIn/create?ParttimeUsuallyId='+config.CONFIG['PartTimeId'])
 
     SignOut = {
