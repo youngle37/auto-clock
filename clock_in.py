@@ -27,7 +27,6 @@ def main():
 
     session = requests.session()
 
-    # IDK how to explain this section
     r = session.get('https://portal.ncu.edu.tw/login', headers=headers)
 
     # Get CSRF token from portal login page
