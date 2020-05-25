@@ -66,7 +66,7 @@ optional arguments:
     |------------------------|---------------------------------------------------------------|
     | account                | Account on Portal                                             |
     | password               | Password on Portal                                            |
-    | jobs                   | Jobs Dictionary, jobName => partTimeId and attendWork        | 
+    | jobs                   | Jobs list, jobName => partTimeId and attendWork               | 
     | partTimeId             | Get from the url of the page you clock in/out                 |
     | attendWork             | Job content                                                   |
 
