@@ -1,0 +1,17 @@
+{
+    "account": "",
+    "password": "",
+    "jobs":
+    {
+       "default_job":
+        {
+            "partTimeId": "Get from the url of the page you clock in/out",
+            "attendWork": "值班"
+        },
+        "example_job":
+        {
+            "partTimeId": "111999",
+            "attendWork": "值班 & 開發"
+        }
+    }
+}
