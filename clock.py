@@ -1,6 +1,7 @@
 import requests
 import argparse
 import json
+import os
 from lxml import html
 from datetime import datetime
 
@@ -9,6 +10,11 @@ parser.add_argument("action",choices=['signin', 'signout'])
 parser.add_argument("--config", default="config.json", help="default: %(default)s")
 parser.add_argument("-j", "--jobname", default="default_job", help="欲打卡工作名稱，定義在 config.json  (default: %(default)s)")
 args = parser.parse_args()
+
+
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 
 def main():
     with open(args.config) as config_file:
